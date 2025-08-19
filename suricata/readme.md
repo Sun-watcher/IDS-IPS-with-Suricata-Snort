@@ -1,6 +1,6 @@
 Pour lancer suricata sur le bridge :
 ```bash
-sudo suricata -i br-2b235d0dc37c -v
+sudo suricata -i br-949d53056adf -v
 ```
 ou
 ```bash
