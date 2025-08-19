@@ -1,0 +1,11 @@
+#!/bin/bash
+
+NETWORK_NAME="lab-net"
+
+echo "[*] Arrêt et suppression des conteneurs..."
+docker rm -f dvwa metasploitable2 2>/dev/null
+
+echo "[*] Suppression du réseau $NETWORK_NAME..."
+docker network rm $NETWORK_NAME 2>/dev/null
+
+echo "[*] Nettoyage terminé."

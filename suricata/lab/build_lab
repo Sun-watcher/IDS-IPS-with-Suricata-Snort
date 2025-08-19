@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Variables
+NETWORK_NAME="lab-net"
+SUBNET="192.168.100.0/24"
+
+# Création du réseau s'il n'existe pas déjà
+if ! docker network inspect $NETWORK_NAME >/dev/null 2>&1; then
+  echo "[*] Création du réseau $NETWORK_NAME ($SUBNET)"
+  docker network create --subnet=$SUBNET $NETWORK_NAME
+else
+  echo "[*] Réseau $NETWORK_NAME déjà existant"
+fi
+
+# Lancer DVWA
+echo "[*] Lancement de DVWA (192.168.100.10)"
+docker run -d --name dvwa --net $NETWORK_NAME --ip 192.168.100.10 vulnerables/web-dvwa
+
+# Lancer Metasploitable2
+echo "[*] Lancement de Metasploitable2 (192.168.100.11)"
+docker run -d --name metasploitable2 --net $NETWORK_NAME --ip 192.168.100.11 tleemcjr/metasploitable2
+
+echo "[*] Lab démarré avec succès !"
+docker ps
