@@ -1,0 +1,11 @@
+# Détection d’un TCP SYN Scan (Nmap -sS)
+alert tcp any any -> any any (msg:"NMAP TCP SYN"; flags:S; threshold:type both, track by_src, count 20, seconds 10; sid:2100001;)
+
+# Détection d’un UDP Scan (Nmap -sU)
+alert udp any any -> any any (msg:"NMAP SCAN UDP"; threshold:type both, track by_src, count 20, seconds 10; sid:2100002;)
+
+# Détection d’un ICMP Flood
+alert icmp any any -> any any (msg:"ICMP Flood Detected";itype:8;track by_src, count 20, seconds 1; classtype:attempted-dos;sid:2100003;)
+
+# Détection d’un Tunnel ICMP (payload trop gros)
+alert icmp any any -> any any (msg:"Suspect ICMP Tunnel"; dsize:>100; sid:2100004;)
