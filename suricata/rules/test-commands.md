@@ -43,7 +43,7 @@ run
 
 ### SQL Injection
 ```bash
-http://192.168.100.10/vulnerabilities/sqli/?id=1' OR 1=1#&Submit=Submit
+1' OR 1=1#&Submit=Submit
 
 ```
 
