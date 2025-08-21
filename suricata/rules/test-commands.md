@@ -31,7 +31,7 @@ set PASSWORD /usr/share/wordlists/rockyou.txt
 run
 ```
 
-## Web-based
+## 2. Web-based
 
 
 
