@@ -1,12 +1,12 @@
 # Lab Suricata - Tests IDS
 ## 1. Network-Based Attacks
 
-### NMAP TCP SYN Scan :
+### NMAP TCP SYN Scan :
 ```bash
 nmap -sS 192.168.100.10
 ```
 
-### NMAP UDP Scan :
+### NMAP UDP SCAN :
 ```bash
 nmap -sU 192.168.100.10
 ```
@@ -21,7 +21,7 @@ sudo hping3 -1 --flood 192.168.100.10
 ping -s 2000 192.168.100.10   
 ```
 
-### SSH bruteforce :
+### SSH bruteforce :
 ```bash
 msfconsole
 use auxiliary/scanner/ssh/ssh_login
