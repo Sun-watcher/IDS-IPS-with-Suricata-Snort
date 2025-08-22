@@ -1,4 +1,4 @@
-# Lab Suricata - Tests IDS
+# Lab - Tests IDS et IPS
 ## 1. Network-Based Attacks
 
 ### NMAP TCP SYN Scan :
