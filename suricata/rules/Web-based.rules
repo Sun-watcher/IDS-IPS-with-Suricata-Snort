@@ -1,8 +1,8 @@
 # XSS Attempt Detection
-alert http any any -> any any (msg:"Cross-Site Scripting Detected"; flow:established,to_server; content:"<script>"; nocase; http_uri; classtype:web-application-attack; sid:2200001;)
+alert http any any -> any any (msg:"Cross-Site Scripting Detected"; flow:established,to_server; content:"<script>"; nocase; http_uri; classtype:web-application-attack; sid:2200001; rev:1;)
 
 # SQL Injection Attempt Detection
-alert http any any -> any any (msg:"SQL Injection Detected"; flow:established,to_server; content:"select"; nocase; http_uri; pcre:"/(\-\-)|(\#)|(\%23)|(\')|(\%27)/i"; classtype:web-application-attack; sid:2200002;)
+alert http any any -> any any (msg:"SQL Injection Detected"; flow:established,to_server; content:"select"; nocase; http_uri; pcre:"/(\-\-)|(\#)|(\%23)|(\')|(\%27)/i"; classtype:web-application-attack; sid:2200002; rev:1;)
 
 # Directory Traversal Attempt Detection
 alert http any any -> any any (msg:"Directory Traversal Attempt Detected"; flow:established,to_server;  pcre:"/(\.\.\/)+.*/i"; classtype:web-application-attack; sid:2200003; rev:1;)
