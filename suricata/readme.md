@@ -10,7 +10,7 @@ ou
 sudo systemctl restart suricata
 ```
 
-### Pour lire les logs :
+### Pour lire les logs :
 ```bash
 tail -f /var/log/suricata/fast.log
 ```
