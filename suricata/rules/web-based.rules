@@ -5,7 +5,7 @@ alert http any any -> any any (msg:"Cross-Site Scripting Detected"; flow:establi
 alert http any any -> any any (msg:"SQL Injection Detected"; flow:established,to_server; content:"select"; nocase; http_uri; pcre:"/(\-\-)|(\#)|(\%23)|(\')|(\%27)/i"; classtype:web-application-attack; sid:2200002; rev:1;)
 
 # Directory Traversal Attempt Detection
-alert http any any -> any any (msg:"Directory Traversal Attempt Detected"; flow:established,to_server;  pcre:"/(\.\.\/)+.*/i"; classtype:web-application-attack; sid:2200003; rev:1;)
+alert http any any -> any any (msg:"Directory Traversal Detected"; flow:established,to_server;  pcre:"/(\.\.\/)+.*/i"; classtype:web-application-attack; sid:2200003; rev:1;)
 
 # File Inclusion Detection
 alert http any any -> any any (msg:"WEB File Inclusion Detected"; flow:established,to_server;  pcre:"/(..\/)+[a-z0-9_\-]+\.(php|txt)/i"; classtype:web-application-attack; sid:2200004; rev:1;)
