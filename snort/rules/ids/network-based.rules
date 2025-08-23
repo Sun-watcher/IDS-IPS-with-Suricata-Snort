@@ -1,14 +1,14 @@
 # Détection d’un TCP SYN Scan (Nmap -sS)
-alert tcp any any -> any any (msg:"NMAP TCP SYN"; flags:S; threshold:type both, track by_src, count 20, seconds 10; classtype:attempted-recon; sid:2100001; rev:1;)
+alert tcp any any -> any any (msg:"NMAP TCP SYN"; flags:S; detection_filter:track by_src, count 20, seconds 10; classtype:attempted-recon; sid:2100001; rev:1;)
 
 # Détection d’un UDP Scan (Nmap -sU)
-alert udp any any -> any any (msg:"NMAP SCAN UDP"; threshold:type both, track by_src, count 20, seconds 10; classtype:attempted-recon; sid:2100002; rev:1;)
+alert udp any any -> any any (msg:"NMAP SCAN UDP"; detection_filter:track by_src, count 20, seconds 10; classtype:attempted-recon; sid:2100002; rev:1;)
 
 # Détection d’un ICMP Flood
-alert icmp any any -> any any (msg:"ICMP Flood Detected"; itype:8; threshold:type both, track by_src, count 20, seconds 1; classtype:attempted-dos; sid:2100003; rev:1;)
+alert icmp any any -> any any (msg:"ICMP Flood Detected"; itype:8; detection_filter:track by_src, count 20, seconds 1; classtype:attempted-dos; sid:2100003; rev:1;)
 
 # Détection d’un Tunnel ICMP (payload trop gros)
 alert icmp any any -> any any (msg:"Suspect ICMP Tunnel"; itype:8; dsize:>100; classtype:bad-unknown; sid:2100004; rev:1;)
 
 # Détection d'un SSH Bruteforce
-alert tcp any any -> any 22 (msg:"SSH Bruteforce Attempt"; flow:to_server,established; threshold:type both, track by_src, count 10, seconds 60; classtype:attempted-recon; sid:2100005; rev:1;)
+alert tcp any any -> any 22 (msg:"SSH Bruteforce Attempt"; flow:to_server,established; detection_filter:track by_src, count 10, seconds 60; classtype:attempted-recon; sid:2100005; rev:1;)
