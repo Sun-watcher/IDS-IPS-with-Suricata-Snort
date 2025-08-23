@@ -11,4 +11,4 @@ drop http any any -> any any (msg:"Directory Traversal Attempt Detected"; flow:e
 drop http any any -> any any (msg:"WEB File Inclusion Detected"; flow:established,to_server;  pcre:"/(..\/)+[a-z0-9_\-]+\.(php|txt)/i"; classtype:web-application-attack; sid:2200004; rev:1;)
 
 # Command Injection Detection
-drop http any any -> any any (msg:"WEB Command Injection Detected"; flow:established,to_server; pcre:"/%3B(.)*(ls|cat|cd)/i"; classtype:web-application-attack; sid:2200005; rev:1;)
+drop http any any -> any any (msg:"WEB Command Injection Detected"; flow:established,to_server; pcre:"/(%3B|\;)(.)*(ls|cat|cd)/i"; classtype:web-application-attack; sid:2200005; rev:1;)
